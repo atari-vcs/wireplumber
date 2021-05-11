@@ -1,0 +1,14 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Files: debian/*
+Copyright: 2019-2021 Collabora Ltd.
+License: MIT
+
+Files: *
+Copyright: 2019-2021 Collabora Ltd.
+License: MIT
+
+Files: lib/wplua/sandbox.lua
+Copyright: 2013 Enrique García Cota,
+ 2020 Collabora Ltd.
+License: MIT
