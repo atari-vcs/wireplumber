@@ -1,3 +1,9 @@
+wireplumber (0.3.95-0apertis0vcs0) vcs; urgency=medium
+
+  * Build for atari vcs project
+
+ -- Christopher Obbard <chris.obbard@collabora.com>  Wed, 12 May 2021 14:28:43 +0100
+
 wireplumber (0.3.95-0apertis0) apertis; urgency=medium
 
   * Initial release (Debian ITP: #988143)
