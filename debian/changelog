@@ -1,3 +1,14 @@
+wireplumber (0.3.95-0apertis1) apertis; urgency=medium
+
+  [ Andrej Shadura ]
+  * Set component to target
+  * Add automatically detected copyright and licensing information
+
+  [ Frédéric Danis ]
+  * d/patches: Backport 32bits fixes
+
+ -- Frédéric Danis <frederic.danis@collabora.com>  Fri, 14 May 2021 09:45:21 +0200
+
 wireplumber (0.3.95-0apertis0) apertis; urgency=medium
 
   * Initial release (Debian ITP: #988143)
