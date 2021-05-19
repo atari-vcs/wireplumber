@@ -1,0 +1,67 @@
+From 20a2f5a232cdd2291e914a522588ddee80ee664c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Danis?= <frederic.danis@collabora.com>
+Date: Wed, 19 May 2021 11:07:36 +0200
+Subject: [PATCH] systemd: Add conflicts with pipewire-media-session
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+This allows to run WirePlumber preferably when pipewire-media-session is
+also installed.
+---
+ src/systemd/system/wireplumber.service.in  | 1 +
+ src/systemd/system/wireplumber@.service.in | 1 +
+ src/systemd/user/wireplumber.service.in    | 1 +
+ src/systemd/user/wireplumber@.service.in   | 1 +
+ 4 files changed, 4 insertions(+)
+
+diff --git a/src/systemd/system/wireplumber.service.in b/src/systemd/system/wireplumber.service.in
+index 9748381..a1239fb 100644
+--- a/src/systemd/system/wireplumber.service.in
++++ b/src/systemd/system/wireplumber.service.in
+@@ -2,6 +2,7 @@
+ Description=Multimedia Service Session Manager
+ After=pipewire.service
+ BindsTo=pipewire.service
++Conflicts=pipewire-media-session.service
+ 
+ [Service]
+ LockPersonality=yes
+diff --git a/src/systemd/system/wireplumber@.service.in b/src/systemd/system/wireplumber@.service.in
+index b5477a4..6f0591e 100644
+--- a/src/systemd/system/wireplumber@.service.in
++++ b/src/systemd/system/wireplumber@.service.in
+@@ -3,6 +3,7 @@ Description=Multimedia Service Session Manager (%i)
+ After=pipewire.service
+ BindsTo=pipewire.service
+ AssertPathExists=@WP_CONFIG_DIR@/%i.conf
++Conflicts=pipewire-media-session.service
+ 
+ [Service]
+ LockPersonality=yes
+diff --git a/src/systemd/user/wireplumber.service.in b/src/systemd/user/wireplumber.service.in
+index 35dcf81..c715039 100644
+--- a/src/systemd/user/wireplumber.service.in
++++ b/src/systemd/user/wireplumber.service.in
+@@ -2,6 +2,7 @@
+ Description=Multimedia Service Session Manager
+ After=pipewire.service
+ BindsTo=pipewire.service
++Conflicts=pipewire-media-session.service
+ 
+ [Service]
+ LockPersonality=yes
+diff --git a/src/systemd/user/wireplumber@.service.in b/src/systemd/user/wireplumber@.service.in
+index 20fb208..174fbde 100644
+--- a/src/systemd/user/wireplumber@.service.in
++++ b/src/systemd/user/wireplumber@.service.in
+@@ -3,6 +3,7 @@ Description=Multimedia Service Session Manager (%i)
+ After=pipewire.service
+ BindsTo=pipewire.service
+ AssertPathExists=@WP_CONFIG_DIR@/%i.conf
++Conflicts=pipewire-media-session.service
+ 
+ [Service]
+ LockPersonality=yes
+-- 
+2.25.1
+
