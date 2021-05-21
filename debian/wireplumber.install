@@ -2,3 +2,4 @@ etc/wireplumber
 usr/bin
 usr/lib/systemd
 usr/share/wireplumber
+debian/apparmor.d/usr.bin.wireplumber etc/apparmor.d/
