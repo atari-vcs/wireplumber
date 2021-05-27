@@ -1,3 +1,9 @@
+wireplumber (0.3.96-1+apertis1) apertis; urgency=medium
+
+  * Sync updates from Debian Experimental
+
+ -- Frederic Danis <frederic.danis@collabora.com>  Wed, 27 May 2021 14:20:29 +0200
+
 wireplumber (0.3.96-1) UNRELEASED; urgency=medium
 
   * New upstream version 0.3.96
