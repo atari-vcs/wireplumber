@@ -1,8 +1,37 @@
-wireplumber (0.3.95-0apertis0vcs0) vcs; urgency=medium
+wireplumber (0.3.96-1+apertis1) apertis; urgency=medium
 
-  * Build for atari vcs project
+  * Sync updates from Debian Experimental
 
- -- Christopher Obbard <chris.obbard@collabora.com>  Wed, 12 May 2021 14:28:43 +0100
+ -- Frederic Danis <frederic.danis@collabora.com>  Wed, 27 May 2021 14:20:29 +0200
+
+wireplumber (0.3.96-1) UNRELEASED; urgency=medium
+
+  * New upstream version 0.3.96
+  * debian: Stop disabling doc and force gobject-introspection
+  * d/patches: Remove merged patches
+  * d/control: Add recommends of pipewire-pulse
+  * debian: Update libwireplumber-0.4 symbols
+  * d/patches: meson: force the gir target to depend on wp-gtkdoc.h
+
+ -- Frederic Danis <frederic.danis@collabora.com>  Wed, 27 May 2021 08:52:29 +0200
+
+wireplumber (0.3.95-0+apertis2) apertis; urgency=medium
+
+  * d/patches: Backport systemd conflicts patch
+  * Add apparmor rule
+
+ -- Frédéric Danis <frederic.danis@collabora.com>  Fri, 21 May 2021 17:54:50 +0200
+
+wireplumber (0.3.95-0apertis1) apertis; urgency=medium
+
+  [ Andrej Shadura ]
+  * Set component to target
+  * Add automatically detected copyright and licensing information
+
+  [ Frédéric Danis ]
+  * d/patches: Backport 32bits fixes
+
+ -- Frédéric Danis <frederic.danis@collabora.com>  Fri, 14 May 2021 09:45:21 +0200
 
 wireplumber (0.3.95-0apertis0) apertis; urgency=medium
 

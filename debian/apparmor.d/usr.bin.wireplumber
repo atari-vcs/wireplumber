@@ -1,0 +1,53 @@
+#include <tunables/global>
+
+profile /usr/bin/wireplumber {
+  #include <abstractions/chaiwala-base>
+  #include <abstractions/dbus-strict>
+  #include <abstractions/dbus-session-strict>
+  #include <abstractions/nameservice>
+  #include <abstractions/pipewire>
+  #include <abstractions/user-tmp>
+  #include <abstractions/orc>
+
+  dbus (send, receive) bus=system peer=(label=/usr/lib/bluetooth/bluetoothd),
+  dbus (send, receive) bus=system peer=(label=/usr/sbin/ofonod),
+  dbus (send, receive) bus=system peer=(label=/usr/bin/pipewire),
+  dbus (send, receive) bus=system peer=(label=unconfined),
+
+  dbus send
+       bus=session
+       path=/org/freedesktop/DBus
+       interface=org.freedesktop.DBus
+       member={RequestName,ReleaseName}
+       peer=(name=org.freedesktop.DBus),
+  dbus bind bus=session name=org.freedesktop.ReserveDevice*.Audio*,
+  dbus (send, receive) bus=session peer=(label=unconfined),
+
+  network bluetooth seqpacket,
+  network bluetooth stream,
+
+  @{HOME}/.config/wireplumber/                 rw,
+  @{HOME}/.config/wireplumber/**               rw,
+
+  /etc/wireplumber/**                          r,
+  /run/udev/data/+sound:*                      rw,
+  # Character device 81:x is video4linux
+  /run/udev/data/c81:*                         r,
+  # Character device 116:x is ALSA
+  /run/udev/data/c116:*                        r,
+  /dev/video*                                  rw,
+  owner @{PROC}/*/stat			       r,
+  owner @{PROC}/*/fd/			       r,
+  owner @{PROC}/*/fd/*			       r,
+
+  /sys/bus/                                    r,
+  /sys/class/                                  r,
+  /sys/class/sound/                            r,
+  /sys/class/video4linux/                      r,
+  /sys/devices/**                              r,
+
+  # tell systemd --user that we're ready
+  /run/user/*/systemd/notify                   w,
+
+  /run/user/*/pipewire*                        rw,
+}

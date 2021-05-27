@@ -1,1 +1,1 @@
-0001-tests-modules-remove-failing-test-for-Debian-build.patch
+meson-force-the-gir-target-to-depend-on-wp-gtkdoc.h.patch
