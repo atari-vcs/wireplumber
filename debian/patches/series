@@ -1,4 +1,1 @@
-0001-tests-modules-remove-failing-test-for-Debian-build.patch
-apertis/0001-spa-pod-respect-the-SPA-size-for-long-and-int-APIs.patch
-apertis/0002-tests-spa-pod-fix-int64-constant-to-work-on-all-arch.patch
-apertis/0003-systemd-Add-conflicts-with-pipewire-media-session.patch
+meson-force-the-gir-target-to-depend-on-wp-gtkdoc.h.patch
